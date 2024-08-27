@@ -1,21 +1,23 @@
+import { transports } from "./../../views/TicketManagement";
 import Ticket from "./Ticket";
 
-export default class PlaneTicket extends Ticket implements Report {
+export default class PlaneTicket extends Ticket {
   private classSector: string;
 
   public constructor(
-    id: number,
-    owner: number,
-    origin: number,
-    destiny: number,
+    owner: string,
+    origin: string,
+    destiny: string,
     classSector: string,
-    email?: string
+    transport: string,
+    type: string,
+    email?: string | undefined
   ) {
-    super(id, owner, origin, destiny, email);
+    super(owner, origin, destiny, classSector, transport, type, email);
     this.classSector = classSector;
   }
   // Getters -----------------------------------------------
-  public getClassSector(): string {
+  public getSeatOption(): string {
     return this.classSector;
   }
   // Setters -----------------------------------------------
@@ -26,9 +28,6 @@ export default class PlaneTicket extends Ticket implements Report {
 
   // Public methods -----------------------------------------
   public calcPrice(): number {
-    return 0; // Make this method later
-  }
-  public retrieveTickets(): string[] {
-    return []; // Get it done later
+    return 0;
   }
 }

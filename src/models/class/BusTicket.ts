@@ -1,3 +1,4 @@
+import { transports } from "./../../views/TicketManagement";
 import Ticket from "./Ticket";
 
 export enum seatPrice {
@@ -5,22 +6,23 @@ export enum seatPrice {
   "Bed" = 60,
 }
 
-export default class BusTicket extends Ticket implements Report {
+export default class BusTicket extends Ticket {
   private seatType: string;
 
   public constructor(
-    id: number,
-    owner: number,
-    origin: number,
-    destiny: number,
+    owner: string,
+    origin: string,
+    destiny: string,
     seatType: string,
-    email?: string
+    transport: string,
+    type: string,
+    email?: string | undefined
   ) {
-    super(id, owner, origin, destiny, email);
+    super(owner, origin, destiny, seatType, transport, type, email);
     this.seatType = seatType;
   }
   // Getters -----------------------------------------------
-  public getSeatType(): string {
+  public getSeatOption(): string {
     return this.seatType;
   }
   // Setters -----------------------------------------------
@@ -33,8 +35,5 @@ export default class BusTicket extends Ticket implements Report {
   public calcPrice(): number {
     // const price = (this.getDistance() * 2.5) +
     return 0;
-  }
-  public retrieveTickets(): string[] {
-    return []; // Get it done later
   }
 }
