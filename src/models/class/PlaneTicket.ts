@@ -1,8 +1,7 @@
-import { transports } from "./../../views/TicketManagement";
-import Ticket from "./Ticket";
+import Ticket from './Ticket'
 
 export default class PlaneTicket extends Ticket {
-  private classSector: string;
+  private classSector: string
 
   public constructor(
     owner: string,
@@ -13,21 +12,21 @@ export default class PlaneTicket extends Ticket {
     type: string,
     email?: string | undefined
   ) {
-    super(owner, origin, destiny, classSector, transport, type, email);
-    this.classSector = classSector;
+    super(owner, origin, destiny, classSector, transport, type, email)
+    this.classSector = classSector
   }
   // Getters -----------------------------------------------
   public getSeatOption(): string {
-    return this.classSector;
+    return this.classSector
   }
   // Setters -----------------------------------------------
   public setClassSector(classSector: string): void {
-    this.classSector = classSector;
+    this.classSector = classSector
   }
   // Private methods ----------------------------------------
 
   // Public methods -----------------------------------------
   public calcPrice(): number {
-    return 0;
+    return 0
   }
 }

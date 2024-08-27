@@ -1,14 +1,12 @@
-import GenerateReport from "../interface/GenerateReport";
-
 export default abstract class Ticket {
-  protected id!: number;
-  protected owner: string;
-  protected origin: string;
-  protected destiny: string;
-  protected seatOption: string;
-  protected transport: string;
-  protected type: string;
-  protected email: string | undefined;
+  protected id!: number
+  protected owner: string
+  protected origin: string
+  protected destiny: string
+  protected seatOption: string
+  protected transport: string
+  protected type: string
+  protected email: string | undefined
 
   public constructor(
     owner: string,
@@ -19,40 +17,40 @@ export default abstract class Ticket {
     type: string,
     email?: string
   ) {
-    this.owner = owner;
-    this.origin = origin;
-    this.destiny = destiny;
-    this.seatOption = seatOption;
-    this.transport = transport;
-    this.type = type;
-    this.email = email;
+    this.owner = owner
+    this.origin = origin
+    this.destiny = destiny
+    this.seatOption = seatOption
+    this.transport = transport
+    this.type = type
+    this.email = email
   }
 
   // Getters -----------------------------------------------
   public getId(): number {
-    return this.id;
+    return this.id
   }
   public getOwner(): string {
-    return this.owner;
+    return this.owner
   }
   public getOrigin(): string {
-    return this.origin;
+    return this.origin
   }
   public getDestiny(): string {
-    return this.destiny;
+    return this.destiny
   }
-  abstract getSeatOption(): string;
+  abstract getSeatOption(): string
 
   public getType(): string {
-    return this.type;
+    return this.type
   }
 
   public getTransport(): string {
-    return this.transport;
+    return this.transport
   }
 
   public getEmail(): string | undefined {
-    return this.email;
+    return this.email
   }
 
   // Setters -----------------------------------------------
@@ -95,5 +93,5 @@ export default abstract class Ticket {
   // }
 
   // Public methods -----------------------------------------
-  abstract calcPrice(): number;
+  abstract calcPrice(): number
 }
