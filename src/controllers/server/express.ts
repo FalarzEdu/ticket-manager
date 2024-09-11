@@ -1,14 +1,14 @@
 import express from 'express'
 import type { Request, Response } from 'express'
 import bodyParser from 'body-parser'
-import GenericDAO from '@/DAO/GenericDAO'
+import GenericDAO from '../../DAO/GenericDAO'
 
 const appExpress = express()
 appExpress.use(bodyParser.json())
 
-const userDAO = new GenericDAO()
+const genDAO = new GenericDAO()
 
-appExpress.post('/api/users', (req: Request, res: Response) => {
+appExpress.post('/insert', (req: Request, res: Response) => {
   const { table, columns, values } = req.body
 
   // Validate input
@@ -19,14 +19,14 @@ appExpress.post('/api/users', (req: Request, res: Response) => {
   }
 
   // Insert data using the DAO
-  userDAO
+  genDAO
     .insert(table, columns, values)
     .then(() => {
-      res.status(201).send('User created successfully!')
+      res.status(201).send('Query successfully completed!')
     })
     .catch((error) => {
       console.error('Error executing query: ' + error)
-      res.status(500).send('Error creating user')
+      res.status(500).send('There was an error while executing the query!')
     })
 })
 
