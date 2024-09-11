@@ -1,7 +1,7 @@
-import BusTicket from '../models/class/BusTicket'
-import PlaneTicket from '../models/class/PlaneTicket'
-import DAO from '../models/DAO/DAO'
-import type { GenerateReport } from '../models/interface/GenerateReport'
+import BusTicket from '../../models/class/BusTicket'
+import PlaneTicket from '../../models/class/PlaneTicket'
+import DAO from '../../models/DAO/DAO'
+import type { GenerateReport } from '../../models/interface/GenerateReport'
 
 export default class TicketController implements GenerateReport {
   protected dao: DAO = new DAO('tickets')
